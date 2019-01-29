@@ -83,8 +83,9 @@
             <br>
             <div>
                 <div class="controls" style="visibility: hidden;" id="filler">&nbsp</div>
-                <div class="controls" id="previous"><p class="controls">< previous</p></div>
-                <div class="controls" id="next"><p class="controls">next ></p></div>
+                <div class="controls" id="previous"><p class="controls">< PREVIOUS</p></div>
+                <div class="controls" id="next"><p class="controls">NEXT ></p></div>
+                <div class="controls" id="reset"><p class="controls">RESET</p></div>
             </div>
         </div>
 
@@ -253,8 +254,9 @@
                 console.log(iterations[currentIteration].charAt(i));
             }
         }
-        function updateNames() {
-
+        function reset() {
+            currentIteration = 0;
+            updateIteration();
         }
 
         $('#name1, #name2, #name3, #name4, #name5').change(function() {
@@ -269,6 +271,9 @@
         });
         $("#previous").click(function() {
             prevIter();
+        });
+        $("#reset").click(function() {
+            reset();
         });
         $(document).keydown(function(e){
             if (e.keyCode == 39) { 
