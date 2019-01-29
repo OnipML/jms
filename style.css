@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-image: url("legos.jpg");
+    color: white;
+}
+div.tint {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+div.box {
+    display: inline-block;
+    min-width: 100px;
+    min-height: 100px;
+    width: 7vw;
+    height: 7vw;
+    background-color: rgb(251,1,162);
+    border-width: 7px;
+    border-style: solid;
+    border-color: rgb(232, 175, 39);
+    margin: 1%;
+}
+div.top {
+    width: 100%;
+    height: 20%;
+    background-color: rgb(251,1,162);
+    border-bottom: 8px solid rgb(232, 175, 39);
+}
+div.controls {
+    color: white;
+    display: inline-block;
+    min-width: 100px;
+    min-height: 20px;
+    width: 7vw;
+    height: 2vw;
+    background-color: rgb(251,1,162);
+    border-width: 7px;
+    border-style: solid;
+    border-color: rgb(232, 175, 39);
+    margin: 1%;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+}
+div.about {
+    position: absolute;
+    min-width: 300px;
+    max-width: 500px;
+    top: 0;
+    right: 0;
+    left: 380px;
+    background: rgba(0, 0, 0, 0.5);
+}
+input.name {
+    color: white;
+    font-size: 100%;
+    border: 0;
+    background-color: rgb(251,1,162);
+    width: 100%;
+    text-align: center;
+}
+p.boxNums {
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    text-align: center;
+}
+p.controls {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JMS Helper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tint">
+        <div>
+            <form autocomplete="off">
+                Edit the names of each character (or leave as is)<br>
+                Character 1: <input type="text" id="name1" maxlength="15" value="char 1"><br>
+                Character 2: <input type="text" id="name2" maxlength="15" value="char 2"><br>
+                Character 3: <input type="text" id="name3" maxlength="15" value="char 3"><br>
+                Character 4: <input type="text" id="name4" maxlength="15" value="char 4"><br>
+                Character 5: <input type="text" id="name5" maxlength="15" value="char 5"><br>
+            </form>
+        </div>
+
+        <br>
+
+        <div>
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box1" value="char 1" readonly>
+                </div>
+                <p class="boxNums">1</p>
+            </div>
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box7" value="" readonly>
+                </div>
+                <p class="boxNums">2</p>
+            </div>
+
+            <br>
+
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box2" value="char 2" readonly>
+                </div>
+                <p class="boxNums">3</p>
+            </div>
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box5" value="char 5" readonly>
+                </div>
+                <p class="boxNums">4</p>
+            </div>
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box8" value="" readonly>
+                </div>
+                <p class="boxNums">5</p>
+            </div>
+
+            <br>
+
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box3" value="char 3" readonly>
+                </div>
+                <p class="boxNums">6</p>
+            </div>
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box4" value="char 4" readonly>
+                </div>
+                <p class="boxNums">7</p>
+            </div>
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box6" value="" readonly>
+                </div>
+                <p class="boxNums">8</p>
+            </div>
+            <div class="box">
+                <div class="top">
+                    <input class="name" type="text" id="box9" value="" readonly>
+                </div>
+                <p class="boxNums">9</p>
+            </div>
+            <br>
+            <div>
+                <div class="controls" style="visibility: hidden;" id="filler">&nbsp</div>
+                <div class="controls" id="previous"><p class="controls">< previous</p></div>
+                <div class="controls" id="next"><p class="controls">next ></p></div>
+            </div>
+        </div>
+
+        Iteration Visualization:
+        <input type="text" id="iterationVisualization" value="12345----">
+
+        <div class="about">
+            Made by Onip<br><br>
+
+            You can press the next and previous buttons OR use the arrow keys to move through the combinations<br><br>
+            Using a different github account to host this so yall don't check out my other stuff and laugh at me<br>
+            If you decide to check out the code, be warned: I'm pretty bad at js and I can't style for my life<br><br>
+            yw jia :)<br>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        var iterations = 
+        ["12345----",
+        "1234-5---",
+        "1234--5--",
+        "1234---5-",
+        "1234----5",
+        "123-45---",
+        "123-4-5--",
+        "123-4--5-",
+        "123-4---5",
+        "123--45--",
+        "123--4-5-",
+        "123--4--5",
+        "123---45-",
+        "123---4-5",
+        "123----45",
+        "12-345---",
+        "12-34-5--",
+        "12-34--5-",
+        "12-34---5",
+        "12-3-45--",
+        "12-3-4-5-",
+        "12-3-4--5",
+        "12-3--45-",
+        "12-3--4-5",
+        "12-3---45",
+        "12--345--",
+        "12--34-5-",
+        "12--34--5",
+        "12--3-45-",
+        "12--3-4-5",
+        "12--3--45",
+        "12---345-",
+        "12---34-5",
+        "12---3-45",
+        "12----345",
+        "1-2345---",
+        "-12345---",
+        "1-234-5--",
+        "-1234-5--",
+        "1-234--5-",
+        "-1234--5-",
+        "1-234---5",
+        "-1234---5",
+        "1-23-45--",
+        "-123-45--",
+        "1-23-4-5-",
+        "-123-4-5-",
+        "1-23-4--5",
+        "-123-4--5",
+        "1-23--45-",
+        "-123--45-",
+        "1-23--4-5",
+        "-123--4-5",
+        "1-23---45",
+        "-123---45",
+        "1-2-345--",
+        "-12-345--",
+        "1-2-34-5-",
+        "-12-34-5-",
+        "1-2-34--5",
+        "-12-34--5",
+        "1-2-3-45-",
+        "-12-3-45-",
+        "1-2-3-4-5",
+        "-12-3-4-5",
+        "1-2-3--45",
+        "-12-3--45",
+        "1-2--345-",
+        "-12--345-",
+        "1-2--34-5",
+        "-12--34-5",
+        "1-2--3-45",
+        "-12--3-45",
+        "1-2---345",
+        "-12---345",
+        "1--2345--",
+        "-1-2345--",
+        "--12345--",
+        "1--234-5-",
+        "-1-234-5-",
+        "--1234-5-",
+        "1--234--5",
+        "-1-234--5",
+        "--1234--5",
+        "1--23-45-",
+        "-1-23-45-",
+        "--123-45-",
+        "1--23-4-5",
+        "-1-23-4-5",
+        "--123-4-5",
+        "1--23--45",
+        "-1-23--45",
+        "--123--45",
+        "1--2-345-",
+        "-1-2-345-",
+        "--12-345-",
+        "1--2-34-5",
+        "-1-2-34-5",
+        "--12-34-5",
+        "1--2-3-45",
+        "-1-2-3-45",
+        "--12-3-45",
+        "1--2--345",
+        "-1-2--345",
+        "--12--345",
+        "1---2345-",
+        "-1--2345-",
+        "--1-2345-",
+        "---12345-",
+        "1---234-5",
+        "-1--234-5",
+        "--1-234-5",
+        "---1234-5",
+        "1---23-45",
+        "-1--23-45",
+        "--1-23-45",
+        "---123-45",
+        "1---2-345",
+        "-1--2-345",
+        "--1-2-345",
+        "---12-345",
+        "1----2345",
+        "-1---2345",
+        "--1--2345",
+        "---1-2345",
+        "----12345"];
+
+        var currentIteration = 0;
+        function nextIter() {
+            if (currentIteration < iterations.length-1) {
+                currentIteration += 1;
+                updateIteration();
+            }
+        }
+        function prevIter() {
+            if (currentIteration >= 1) {
+                currentIteration -= 1;
+                updateIteration();
+            }
+        }
+        function updateIteration() {
+            $("#box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9").val("");
+            $("#iterationVisualization").val(iterations[currentIteration]);
+            for (var i = -1; i < iterations[currentIteration].length; i++) {
+                if (iterations[currentIteration].charAt(i) != "-") {
+                    $("#box" + (i+1)).val($("#name" + (iterations[currentIteration].charAt(i) - '0')).val());
+                }
+                console.log(iterations[currentIteration].charAt(i));
+            }
+        }
+        function updateNames() {
+
+        }
+
+        $('#name1, #name2, #name3, #name4, #name5').change(function() {
+            $("#box1").val($("#name1").val());
+            $("#box2").val($("#name2").val());
+            $("#box3").val($("#name3").val());
+            $("#box4").val($("#name4").val());
+            $("#box5").val($("#name5").val());
+        });
+        $("#next").click(function() {
+            nextIter();
+        });
+        $("#previous").click(function() {
+            prevIter();
+        });
+        $(document).keydown(function(e){
+            if (e.keyCode == 39) { 
+                if (currentIteration < iterations.length-1) {
+                    currentIteration += 1;
+                    $('#iterationVisualization').val(iterations[currentIteration]);
+                    updateIteration();
+                }
+                return false;
+            }
+            if (e.keyCode == 37) { 
+                if (currentIteration >= 1) {
+                    currentIteration -= 1;
+                    $('#iterationVisualization').val(iterations[currentIteration]);
+                    updateIteration();
+                }
+                return false;
+            }
+            if (e.keyCode == 38) {
+                $("#box1,#box2,#box3,#box4,#box5,#box6,#box7,#box8,#box9").val("");
+                $("#box1", "#box2").val("");
+            }
+        });
+    </script>
+</body>
+</html>
